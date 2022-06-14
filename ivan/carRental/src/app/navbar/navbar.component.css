@@ -1,0 +1,21 @@
+.donation{
+    color: white;
+    margin-left: 20px;
+}
+
+.navbar1{
+    
+    align-items: center;
+}
+
+#donation1{
+    color: white;
+    margin-left: 20px;
+    position: absolute;
+    left: 40%;
+    
+}
+
+#navbarSupportedContent{
+    position: relative;
+}

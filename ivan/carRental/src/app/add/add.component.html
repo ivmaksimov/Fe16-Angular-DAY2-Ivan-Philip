@@ -1,0 +1,26 @@
+<form class="form" [formGroup]="addNew" (ngSubmit)="onSubmit()">
+
+    <label>
+     <h5>Brand</h5>
+      <input type="text" formControlName="brand">
+    </label>
+  
+    <label>
+      <h5>Model</h5>
+      <input type="text" formControlName="model">
+    </label>
+  
+    <label>
+        <h5>Year</h5>
+      <input type="number" formControlName="year">
+  
+    </label>
+  
+    <label>
+        <h5>Price</h5>
+      <input type="number" formControlName="price">
+    </label>
+  
+    <input type="submit" class="btn btn-primary" value="Submit">
+  
+   </form>
