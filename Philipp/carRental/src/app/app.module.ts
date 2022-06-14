@@ -9,7 +9,6 @@ import { ContactUsComponent } from './contact-us/contact-us.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContentComponent } from './content/content.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { vehicles } from './classes/myclasses';
 
 @NgModule({
   declarations: [
@@ -25,9 +24,7 @@ import { vehicles } from './classes/myclasses';
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [{
-    provide: 'VEHICLES', useValue: vehicles
-  }],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
