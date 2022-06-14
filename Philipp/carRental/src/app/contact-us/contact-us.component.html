@@ -1,0 +1,25 @@
+<div class="container">
+  <form [formGroup]="formInfo" (ngSubmit)="getInputValues()">
+    <div class="mb-3">
+      <label for="input1" class="form-label">Car name</label>
+      <input class="form-control" id="input1" aria-describedby="input" formControlName="carName">
+    </div>
+    <div class="mb-3">
+      <label for="input1" class="form-label">Seats</label>
+      <input class="form-control" id="input1" aria-describedby="input" formControlName="seats">
+    </div>
+    <div class="mb-3">
+      <label for="input1" class="form-label">Mileage</label>
+      <input class="form-control" id="input1" aria-describedby="input" formControlName="mileage">
+    </div>
+    <div class="mb-3">
+      <label for="input1" class="form-label">Fuel</label>
+      <input class="form-control" id="input1" aria-describedby="input" formControlName="fuel">
+    </div>
+    <div class="mb-3">
+      <label for="input1" class="form-label">Year</label>
+      <input class="form-control" id="input1" aria-describedby="input" formControlName="year">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
