@@ -19,7 +19,7 @@ export class ContactUsComponent implements OnInit {
 
   getInputValues() {
     if(this.formInfo.valid) {
-      if(!vehicles.find(ele => ele.name == this.formInfo.value )) {
+      if(!vehicles.find(ele => ele.name === this.formInfo.value.name )) {
         new Vehicle(
             this.formInfo.value.name!,
             Number(this.formInfo.value.seats!),
