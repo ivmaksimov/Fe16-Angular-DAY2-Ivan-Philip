@@ -13,6 +13,7 @@ export class Vehicle {
     this.fuel = fuel;
     this.year = year;
     vehicles.push(this)
+    //localStorage.setItem("vehicles", JSON.stringify(vehicles))
   }
   calculatePrice() {
     return this.milage + this.seats

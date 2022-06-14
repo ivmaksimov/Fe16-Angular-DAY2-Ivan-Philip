@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Vehicle, vehicles  } from '../classes/myclasses';
-
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -8,11 +7,11 @@ import { Vehicle, vehicles  } from '../classes/myclasses';
 })
 export class ContentComponent implements OnInit {
   
-  cars = vehicles;
+  cars = vehicles
+  //cars = JSON.parse(localStorage.getItem("vehicles")!);
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-  
+  ngOnInit(): void { }
+
 }

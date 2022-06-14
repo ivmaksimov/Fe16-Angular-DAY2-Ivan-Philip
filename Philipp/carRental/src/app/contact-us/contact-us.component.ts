@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Vehicle, vehicles } from '../classes/myclasses';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./contact-us.component.scss']
 })
-export class ContactUsComponent implements OnInit {
+export class ContactUsComponent implements OnInit, OnChanges {
 
   formInfo = new FormGroup({
     name: new FormControl("", Validators.required),
@@ -40,4 +41,7 @@ export class ContactUsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes['vehicles'])
+  }
 }
