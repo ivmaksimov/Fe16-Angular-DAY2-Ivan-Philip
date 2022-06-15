@@ -1,5 +1,7 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Vehicle, vehicles  } from '../classes/myclasses';
+import { ArrayService } from '../array.service';
+
 @Component({
   selector: 'app-content',
   templateUrl: './content.component.html',
@@ -7,11 +9,14 @@ import { Vehicle, vehicles  } from '../classes/myclasses';
 })
 export class ContentComponent implements OnInit {
   
-  cars = vehicles
-  //cars = JSON.parse(localStorage.getItem("vehicles")!);
+  protected cars: Array<Vehicle> = vehicles;
 
-  constructor() { }
+  constructor(private arrayService: ArrayService) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void { 
+    this.cars = this.arrayService.getItems()
+    console.log("main init")
+    console.log(this.arrayService.getItems())
+  }
 
 }

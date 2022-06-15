@@ -1,47 +1,46 @@
-import { Component, OnInit, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Vehicle, vehicles } from '../classes/myclasses';
+import { ArrayService } from '../array.service';
 
 @Component({
   selector: 'app-contact-us',
   templateUrl: './contact-us.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./contact-us.component.scss']
 })
-export class ContactUsComponent implements OnInit, OnChanges {
+export class ContactUsComponent implements OnInit {
 
   formInfo = new FormGroup({
     name: new FormControl("", Validators.required),
-    seats: new FormControl("", Validators.required),
-    km: new FormControl("", Validators.required),
+    seats: new FormControl("", [Validators.required, Validators.pattern(/\d+/)]),
+    km: new FormControl("", [Validators.required, Validators.pattern(/\d+/)]),
     fuel: new FormControl("", Validators.required),
-    year: new FormControl("", Validators.required)
+    year: new FormControl("", [Validators.required, Validators.pattern(/\d+/)])
   })
 
-  getInputValues() {
-    if(this.formInfo.valid) {
-      if(!vehicles.find(ele => ele.name === this.formInfo.value.name )) {
-        new Vehicle(
-            this.formInfo.value.name!,
-            Number(this.formInfo.value.seats!),
-            Number(this.formInfo.value.km!),
-            this.formInfo.value.fuel!,
-            Number(this.formInfo.value.year!)
-          )
-      console.log(vehicles)
-      }
-    } else {
-      console.error("can't add to vehicles")
-      console.log(vehicles)
-    }
-  }
-
-  constructor() { }
+  constructor(
+    private arrayService: ArrayService) { }
 
   ngOnInit(): void {
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes['vehicles'])
+  getInputValues() {
+    if(this.formInfo.valid) {
+      if(this.arrayService.getItems().find(ele => ele.name === this.formInfo.value.name )) {
+        console.error("Can't add to Array")
+      } else {
+        this.arrayService.addToArray(
+          new Vehicle(
+              this.formInfo.value.name!,
+              Number(this.formInfo.value.seats!),
+              Number(this.formInfo.value.km!),
+              this.formInfo.value.fuel!,
+              Number(this.formInfo.value.year!)
+            )
+        )
+        window.alert("Car added!")
+        console.log(this.arrayService.getItems())
+      }
+    }
   }
 }
