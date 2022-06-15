@@ -1,0 +1,49 @@
+<form class="form" [formGroup]="info" (ngSubmit)="onSubmit()">
+
+ 
+
+    <label>
+        
+     <h5>First Name</h5>
+  
+      <input type="text" formControlName="firstName">
+  
+    </label>
+  
+   
+  
+    <label>
+  
+      
+      <h5>Last Name</h5>
+      <input type="text" formControlName="lastName">
+  
+    </label>
+  
+   
+  
+    <label>
+  
+        <h5>Age</h5>
+  
+      <input type="text" formControlName="age">
+  
+    </label>
+  
+   
+  
+    <label>
+  
+        <h5>Email</h5>
+  
+      <input type="text" formControlName="email">
+  
+    </label>
+  
+   
+  
+    <input type="submit" class="btn btn-primary" value="Submit">
+  
+   
+  
+   </form>
